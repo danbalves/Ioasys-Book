@@ -37,7 +37,8 @@
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintTop_toBottomOf="@id/logoImageView"
         app:boxStrokeWidth="0dp"
-        app:boxStrokeColor="@color/input_color_transparent_gray">
+        app:boxStrokeColor="@color/transparent"
+        app:hintTextColor="@color/hint_input_light_gray">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -59,7 +60,8 @@
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintTop_toBottomOf="@id/logoImageView"
         app:boxStrokeWidth="0dp"
-        app:boxStrokeColor="@color/input_color_transparent_gray">
+        app:boxStrokeColor="@color/transparent"
+        app:hintTextColor="@color/hint_input_light_gray">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"

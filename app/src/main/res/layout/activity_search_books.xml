@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchBooks_Activity">
+    tools:context=".SearchBooks_Activity"
+    android:fitsSystemWindows="true">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/canvas"
@@ -59,6 +60,18 @@
         app:layout_constraintTop_toTopOf="@id/search_bar"
         android:layout_marginTop="14dp"
         android:layout_marginStart="14dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_view"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="@id/guideLineStart2"
+        app:layout_constraintEnd_toEndOf="@id/guideLineEnd2"
+        android:layout_marginTop="158dp">
+
+
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 
     <androidx.constraintlayout.widget.Guideline
