@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Ioasys Books</string>
+    <string name="background_description">Fundo rosa, laranja, contento uma mulher.</string>
+    <string name="login_button">Entrar</string>
+    <string name="email">Email</string>
+    <string name="senha">Senha</string>
+    <string name="error_text">Email e/ou senha incorretos.</string>
+    <string name="search_hint">Pesquisar</string>
+</resources>
