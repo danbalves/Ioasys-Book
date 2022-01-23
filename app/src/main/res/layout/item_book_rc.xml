@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/materialCardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="20dp"
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="4dp"
+    android:background="@color/white">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="19dp"
+        android:layout_marginTop="0dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgBookView"
+            android:layout_width="81dp"
+            android:layout_height="122dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@drawable/img_book"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitleBook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="113dp"
+            android:layout_marginTop="14dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Crossing the Chasm"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtAuthorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="113dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/heebo"
+            android:textColor="@color/txt_button_pink_color"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Geoffrey A. Moore" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtPages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="113dp"
+            android:layout_marginBottom="40dp"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/imgBookView"
+            tools:text="150 páginas" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtPublisher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="113dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/heebo"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/imgBookView"
+            tools:text="Editora Loyola"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtPublished"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="113dp"
+            android:layout_marginTop="128dp"
+            android:fontFamily="@font/heebo"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/imgBookView"
+            tools:text="Publicado em 2020" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/background_description"
         android:scaleType="centerCrop"
-        android:src="@drawable/background_image_login" />
+        android:src="@drawable/img_background_main" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/logoImageView"
@@ -43,7 +43,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/input_color_transparent_gray"
+            android:background="@drawable/bg_input_login"
             android:paddingStart="13dp"
             android:paddingEnd="0dp"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -56,17 +56,17 @@
         android:hint="@string/senha"
         android:textColorHint="@color/hint_input_light_gray"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-        app:layout_constraintStart_toStartOf="@id/guidelineStart"
-        app:layout_constraintTop_toBottomOf="@id/logoImageView"
         app:boxStrokeWidth="0dp"
         app:boxStrokeColor="@color/transparent"
-        app:hintTextColor="@color/hint_input_light_gray">
+        app:hintTextColor="@color/hint_input_light_gray"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/logoImageView">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/input_color_transparent_gray"
+            android:background="@drawable/bg_input_login"
             android:paddingStart="13dp"
             android:paddingEnd="0dp"
             android:inputType="textPassword"/>
@@ -79,7 +79,6 @@
         android:layout_marginStart="243dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/login_bnt_action"
-        android:fontFamily="@font/heebo_regular"
         android:text="@string/login_button"
         android:textAllCaps="false"
         android:textColor="@color/txt_button_pink_color"

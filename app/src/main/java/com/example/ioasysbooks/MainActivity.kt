@@ -1,5 +1,6 @@
 package com.example.ioasysbooks
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -11,12 +12,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val emailInput = findViewById<TextInputLayout>(R.id.input_email)
-        val passwordInput = findViewById<TextInputLayout>(R.id.input_password)
         val loginButton = findViewById<AppCompatButton>(R.id.login_button)
-        val errorMessage = findViewById<TextView>(R.id.error_message)
 
+        loginButton.setOnClickListener{
+            startMenuActivity()
+        }
     }
 
+    private fun startMenuActivity(){
+
+        val intent = Intent(this, MenuActivity::class.java)
+
+        startActivity(intent)
+    }
 
 }
