@@ -12,14 +12,15 @@ import com.example.ioasysbooks.R
 import com.example.ioasysbooks.models.Book
 
 
+
 class BookListAdapter: ListAdapter<Book, BookListAdapter.BookListViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookListViewHolder {
-        TODO("Not yet implemented")
+        return BookListViewHolder.create(parent)
     }
 
     override fun onBindViewHolder(holder: BookListViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bind(getItem(position))
     }
 
     companion object {
@@ -37,10 +38,17 @@ class BookListAdapter: ListAdapter<Book, BookListAdapter.BookListViewHolder>(DIF
     class BookListViewHolder(view: View): RecyclerView.ViewHolder(view){
 
         private val bookTitle: AppCompatTextView = view.findViewById(R.id.tvTitleBook)
+        private val bookPageCount: AppCompatTextView = view.findViewById(R.id.tvPagesCount)
+        private val bookPublisher: AppCompatTextView = view.findViewById(R.id.tvPublisher)
+        private val bookPublished: AppCompatTextView = view.findViewById(R.id.tvPublished)
+
 
         fun bind(book: Book){
 
             bookTitle.text = book.title
+            bookPageCount.text = book.pageCount
+            bookPublisher.text = book.publisher
+            bookPublished.text = book.published
 
         }
 

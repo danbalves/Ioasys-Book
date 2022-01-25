@@ -3,9 +3,9 @@ package com.example.ioasysbooks.models
 data class Book(
     val id: Int,
     val title: String,
-    val pageCount: String = " Páginas",
+    val pageCount: String = "Páginas ",
     val publisher: String = "Editora ",
-    val published: String = "Publicado em ",
+    val published: String = "Publicado em "
 ){
     companion object {
         fun getMockList() = listOf(

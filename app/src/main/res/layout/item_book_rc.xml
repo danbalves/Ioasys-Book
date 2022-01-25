@@ -8,7 +8,7 @@
     android:elevation="20dp"
     android:layout_marginVertical="4dp"
     app:cardCornerRadius="4dp"
-    android:background="@color/white">
+    android:backgroundTint="@color/white">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -51,7 +51,7 @@
             tools:text="Geoffrey A. Moore" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/txtPages"
+            android:id="@+id/tvPagesCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="113dp"
@@ -63,7 +63,7 @@
             tools:text="150 páginas" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/txtPublisher"
+            android:id="@+id/tvPublisher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="113dp"
@@ -76,7 +76,7 @@
             tools:text="Editora Loyola"/>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/txtPublished"
+            android:id="@+id/tvPublished"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="113dp"
