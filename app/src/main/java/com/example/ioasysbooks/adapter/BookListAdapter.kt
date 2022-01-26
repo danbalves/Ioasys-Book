@@ -38,6 +38,7 @@ class BookListAdapter: ListAdapter<Book, BookListAdapter.BookListViewHolder>(DIF
     class BookListViewHolder(view: View): RecyclerView.ViewHolder(view){
 
         private val bookTitle: AppCompatTextView = view.findViewById(R.id.tvTitleBook)
+        private val bookAuthor: AppCompatTextView = view.findViewById(R.id.txtAuthorName)
         private val bookPageCount: AppCompatTextView = view.findViewById(R.id.tvPagesCount)
         private val bookPublisher: AppCompatTextView = view.findViewById(R.id.tvPublisher)
         private val bookPublished: AppCompatTextView = view.findViewById(R.id.tvPublished)
@@ -46,6 +47,7 @@ class BookListAdapter: ListAdapter<Book, BookListAdapter.BookListViewHolder>(DIF
         fun bind(book: Book){
 
             bookTitle.text = book.title
+            bookAuthor.text = book.author
             bookPageCount.text = book.pageCount
             bookPublisher.text = book.publisher
             bookPublished.text = book.published

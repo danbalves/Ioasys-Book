@@ -3,7 +3,8 @@
     <string name="background_description">Fundo rosa, laranja, contento uma mulher.</string>
     <string name="login_button">Entrar</string>
     <string name="email">Email</string>
-    <string name="senha">Senha</string>
+    <string name="senha">Password</string>
     <string name="error_text">Email e/ou senha incorretos.</string>
     <string name="search_hint">Pesquisar</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

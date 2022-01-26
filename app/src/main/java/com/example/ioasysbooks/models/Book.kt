@@ -3,6 +3,7 @@ package com.example.ioasysbooks.models
 data class Book(
     val id: Int,
     val title: String,
+    val author: String = "Geoffrey A. Moore",
     val pageCount: String = "Páginas ",
     val publisher: String = "Editora ",
     val published: String = "Publicado em "
@@ -35,5 +36,18 @@ data class Book(
                 title = "Web Design 161"
             )
         )
+
+        fun getMockListCount(count: Int): List<Book> {
+            val mockList = mutableListOf<Book>()
+            for(id in 1..count){
+                mockList.add(
+                    Book(
+                        id = id,
+                        title = "Crossing The Charm"
+                    )
+                )
+            }
+            return mockList
+        }
     }
 }
