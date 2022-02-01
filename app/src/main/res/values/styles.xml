@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Book_Title">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/title</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Book_SubTitle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/subtitle</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Book_Description">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/description</item>
+    </style>
+
+    <style name="Book_Label">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Book_Info">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#999999</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="ListEmpty">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/title_50</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="CustomBottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheet</item>
+    </style>
+
+    <style name="CustomBottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/CustomShapeAppearanceBottomSheetDialog</item>
+    </style>
+
+    <style name="CustomShapeAppearanceBottomSheetDialog">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+</resources>

@@ -7,4 +7,8 @@
     <string name="error_text">Email e/ou senha incorretos.</string>
     <string name="search_hint">Pesquisar</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="close">Fechar</string>
+    <string name="book_title_string">Change By Design Second line exa...</string>
+    <string name="string_book_title_description">INFORMAÇÕES</string>
+    <string name="string_book_page_description">Páginas</string>
 </resources>

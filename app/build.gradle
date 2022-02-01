@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -57,12 +58,23 @@ dependencies {
     //RecycleView
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
-    //Retrofit and OkHttp
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    def retrofitVersion = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    def retrofitCoroutineVersion = "0.9.2"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofitCoroutineVersion"
+    def okhttpVersion = "4.9.0"
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
 
-    //Gson
-    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+
+    def coilVersion = "1.4.0"
+    implementation "io.coil-kt:coil:$coilVersion"
+
+    def roomVersion = "2.4.1"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
 
 
 }

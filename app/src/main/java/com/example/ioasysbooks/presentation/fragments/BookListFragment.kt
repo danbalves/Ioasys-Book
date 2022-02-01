@@ -1,4 +1,4 @@
-package com.example.ioasysbooks.fragments
+package com.example.ioasysbooks.presentation.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,14 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.RecyclerView
-import com.example.ioasysbooks.R
-import com.example.ioasysbooks.adapter.BookListAdapter
+import com.example.ioasysbooks.presentation.adapter.BookClickListener
+import com.example.ioasysbooks.presentation.adapter.BookListAdapter
 import com.example.ioasysbooks.databinding.FragmentBookListBinding
-import com.example.ioasysbooks.databinding.FragmentLoginBinding
 import com.example.ioasysbooks.models.Book
 
-class BookListFragment : Fragment() {
+class BookListFragment : Fragment(), BookClickListener {
 
     private val args: BookListFragmentArgs by navArgs()
     private lateinit var bookListAdapter: BookListAdapter
@@ -37,18 +35,20 @@ class BookListFragment : Fragment() {
 
     private fun setBookListData(){
 
-        bookListAdapter = BookListAdapter()
+        bookListAdapter = BookListAdapter(this)
         binding.recycleView.adapter = bookListAdapter
 
         bookListAdapter.submitList(
-            Book.getMockListCount(
-                args.itemCount
-            )
+            Book.getMockList()
         )
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onBookClickListener(book: Book) {
+        BookDetailsBottomSheet.newInstance(book).show(childFragmentManager, "book")
     }
 }

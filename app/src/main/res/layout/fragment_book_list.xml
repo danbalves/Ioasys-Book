@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.BookListFragment"
+    tools:context=".presentation.fragments.BookListFragment"
     android:fitsSystemWindows="true">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -47,14 +47,14 @@
         app:layout_constraintEnd_toEndOf="@id/guideLineEnd2"
         app:layout_constraintTop_toBottomOf="@id/editSearch"
         android:orientation="vertical"
-        tools:listitem="@layout/item_book_rc"
+        tools:listitem="@layout/book_item"
         android:paddingVertical="20dp"
         android:paddingHorizontal="0dp"
         android:clipToPadding="true"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         />
 
-    <com.example.ioasysbooks.custom_views.CustomSearchInput
+    <com.example.ioasysbooks.presentation.custom_views.CustomSearchInput
         android:id="@+id/editSearch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

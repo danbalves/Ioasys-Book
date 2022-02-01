@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.LoginFragment">
+    tools:context=".presentation.fragments.LoginFragment">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_input_login"
             android:paddingStart="13dp"
-            android:paddingEnd="0dp"
+            android:paddingEnd="100dp"
             android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
