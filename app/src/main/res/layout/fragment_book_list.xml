@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.fragments.BookListFragment"
+    tools:context=".presentation.ui.fragments.BookListFragment"
     android:fitsSystemWindows="true">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -39,7 +39,7 @@
         android:background="@color/transparent"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle_view"
+        android:id="@+id/recycleView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,7 +54,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         />
 
-    <com.example.ioasysbooks.presentation.custom_views.CustomSearchInput
+    <com.example.ioasysbooks.presentation.ui.custom_views.CustomSearchInput
         android:id="@+id/editSearch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -63,6 +63,19 @@
         app:layout_constraintStart_toStartOf="@id/guideLineStart2"
         app:layout_constraintEnd_toEndOf="@id/guideLineEnd2"
         app:layout_constraintTop_toBottomOf="@id/logoImageView2"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_empty_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/ListEmpty"
+        app:layout_constraintStart_toStartOf="@id/guideLineStart2"
+        app:layout_constraintEnd_toEndOf="@id/guideLineEnd2"
+        app:layout_constraintTop_toBottomOf="@id/editSearch"
+        android:layout_marginTop="81dp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:text="@string/string_empty_error"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideLineEnd2"

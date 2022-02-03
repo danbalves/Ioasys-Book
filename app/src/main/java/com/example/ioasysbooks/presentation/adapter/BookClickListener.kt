@@ -1,6 +1,6 @@
 package com.example.ioasysbooks.presentation.adapter
 
-import com.example.ioasysbooks.models.Book
+import com.example.ioasysbooks.domain.model.Book
 
 interface BookClickListener {
 

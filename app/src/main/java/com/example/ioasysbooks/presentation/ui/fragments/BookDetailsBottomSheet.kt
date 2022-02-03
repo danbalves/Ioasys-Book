@@ -1,4 +1,4 @@
-package com.example.ioasysbooks.presentation.fragments
+package com.example.ioasysbooks.presentation.ui.fragments
 
 import android.os.Bundle
 import android.text.SpannableString
@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.ioasysbooks.R
 import com.example.ioasysbooks.databinding.BottomSheetBookDetailsBinding
-import com.example.ioasysbooks.models.Book
+import com.example.ioasysbooks.domain.model.Book
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

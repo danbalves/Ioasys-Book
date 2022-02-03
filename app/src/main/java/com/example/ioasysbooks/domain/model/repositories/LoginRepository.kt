@@ -1,6 +1,6 @@
-package com.example.ioasysbooks.domain.repositories
+package com.example.ioasysbooks.domain.model.repositories
 
-import com.example.ioasysbooks.models.User
+import com.example.ioasysbooks.domain.model.User
 import kotlinx.coroutines.flow.Flow
 
 interface LoginRepository {

@@ -11,4 +11,5 @@
     <string name="book_title_string">Change By Design Second line exa...</string>
     <string name="string_book_title_description">INFORMAÇÕES</string>
     <string name="string_book_page_description">Páginas</string>
+    <string name="string_empty_error">Não encontramos nenhum\n livro com esses termos.</string>
 </resources>

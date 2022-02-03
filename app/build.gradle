@@ -76,5 +76,10 @@ dependencies {
     kapt "androidx.room:room-compiler:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
 
+    def koin_version= "3.1.4"
+    implementation "io.insert-koin:koin-android:$koin_version"
+
+    testImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
+
 
 }

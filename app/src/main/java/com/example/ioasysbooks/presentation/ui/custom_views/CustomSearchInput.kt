@@ -1,4 +1,4 @@
-package com.example.ioasysbooks.presentation.custom_views
+package com.example.ioasysbooks.presentation.ui.custom_views
 
 import android.content.Context
 import android.util.AttributeSet
@@ -24,7 +24,7 @@ class CustomSearchInput @JvmOverloads constructor(
         view.findViewById(R.id.search_bar)
     }
 
-    private var textChangeListener: (Input: String) -> Unit = {}
+    var textChangeListener: (Input: String) -> Unit = {}
 
     init {
 

@@ -1,4 +1,4 @@
-package com.example.ioasysbooks.models
+package com.example.ioasysbooks.domain.model
 
 data class User(
     val name: String,
