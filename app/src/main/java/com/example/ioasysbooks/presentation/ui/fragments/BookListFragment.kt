@@ -38,7 +38,7 @@ class BookListFragment : Fragment(), BookClickListener {
     }
 
     private fun configureListeners(){
-        binding.editSearch.textChangeListener = {input ->
+        binding.editSearch.textChangedListener = {input ->
             viewModel.search(input)
         }
     }
@@ -47,7 +47,7 @@ class BookListFragment : Fragment(), BookClickListener {
     private fun setBookListData(){
         bookListAdapter = BookListAdapter(this)
         binding.recycleView.adapter = bookListAdapter
-        viewModel.search("")
+        viewModel.search()
     }
 
     private fun addObserver() {
@@ -56,7 +56,7 @@ class BookListFragment : Fragment(), BookClickListener {
 
             when(state){
                 is ViewState.Success -> {
-                    binding.textViewEmptyList.visibility = View.GONE
+                    showEmptyListError(false)
                     bookListAdapter.submitList(
                         state.data
                     )
@@ -65,7 +65,7 @@ class BookListFragment : Fragment(), BookClickListener {
                     when(state.throwable){
                         is EmptyBookListException -> {
                             bookListAdapter.submitList(listOf())
-                            binding.textViewEmptyList.visibility = View.VISIBLE
+                            showEmptyListError(true)
                         }
                         else -> Unit
                     }
@@ -73,6 +73,10 @@ class BookListFragment : Fragment(), BookClickListener {
                 else -> Unit
             }
         }
+    }
+
+    private fun showEmptyListError(hasError: Boolean){
+        binding.textViewEmptyList.visibility = if(hasError) View.VISIBLE else View.GONE
     }
 
     override fun onBookClickListener(book: Book) {

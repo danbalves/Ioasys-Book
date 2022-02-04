@@ -24,7 +24,7 @@ class CustomSearchInput @JvmOverloads constructor(
         view.findViewById(R.id.search_bar)
     }
 
-    var textChangeListener: (Input: String) -> Unit = {}
+    var textChangedListener: (Input: String) -> Unit = {}
 
     init {
 
@@ -51,12 +51,11 @@ class CustomSearchInput @JvmOverloads constructor(
         input.addTextChangedListener { input ->
 
             configureInputBackground(input.isNullOrEmpty())
-            textChangeListener.invoke(toString())
+            textChangedListener.invoke(input.toString())
 
         }
 
     }
-
     private fun configureInputBackground(empty: Boolean){
         if(empty)
             input.backgroundTintList = null

@@ -29,7 +29,7 @@ class BookListViewModel: ViewModel() {
         }
     }
 
-    fun search(input: String){
+    fun search(input: String = ""){
 
         viewModelScope.launch {
             getBooks(input).let { books ->
