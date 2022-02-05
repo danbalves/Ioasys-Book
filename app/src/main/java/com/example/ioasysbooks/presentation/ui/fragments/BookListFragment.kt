@@ -5,14 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
 import com.example.ioasysbooks.presentation.adapter.BookClickListener
 import com.example.ioasysbooks.presentation.adapter.BookListAdapter
 import com.example.ioasysbooks.databinding.FragmentBookListBinding
 import com.example.ioasysbooks.domain.model.Book
-import com.example.ioasysbooks.domain.model.exception.EmptyBookListException
+import com.example.ioasysbooks.domain.exception.EmptyBookListException
 import com.example.ioasysbooks.presentation.viewmodel.BookListViewModel
 import com.example.ioasysbooks.util.ViewState
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BookListFragment : Fragment(), BookClickListener {
 
@@ -20,7 +21,7 @@ class BookListFragment : Fragment(), BookClickListener {
     private var _binding: FragmentBookListBinding? = null
     private val binding: FragmentBookListBinding get() = _binding!!
 
-    private val viewModel: BookListViewModel by viewModels()
+    private val booksViewModel: BookListViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +40,7 @@ class BookListFragment : Fragment(), BookClickListener {
 
     private fun configureListeners(){
         binding.editSearch.textChangedListener = {input ->
-            viewModel.search(input)
+            booksViewModel.search(input)
         }
     }
 
@@ -47,12 +48,12 @@ class BookListFragment : Fragment(), BookClickListener {
     private fun setBookListData(){
         bookListAdapter = BookListAdapter(this)
         binding.recycleView.adapter = bookListAdapter
-        viewModel.search()
+        booksViewModel.search()
     }
 
     private fun addObserver() {
 
-        viewModel.bookListViewState.observe(viewLifecycleOwner){ state ->
+        booksViewModel.bookListViewState.observe(viewLifecycleOwner){ state ->
 
             when(state){
                 is ViewState.Success -> {

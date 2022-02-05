@@ -4,27 +4,35 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.ioasysbooks.domain.model.exception.LoginException
+import com.example.ioasysbooks.domain.repositories.LoginRepository
 import com.example.ioasysbooks.util.*
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class LoginViewModel: ViewModel(){
+class LoginViewModel(
+    private val loginRepository: LoginRepository
+): ViewModel(){
 
     private val _loggedUserViewState = MutableLiveData<ViewState<Boolean>>()
     val loggedUserViewState = _loggedUserViewState as LiveData<ViewState<Boolean>>
 
-    fun Login(email: String, password: String){
+    fun login(email: String, password: String){
 
         viewModelScope.launch{
 
             _loggedUserViewState.postLoading()
-            delay(2_000)
 
-            if(email.isNotEmpty() && password.isNotEmpty()){
-                _loggedUserViewState.postSuccess(true)
-            } else{
-                _loggedUserViewState.postError(LoginException())
+            try {
+                loginRepository.login(email, password).collectLatest {
+                    if(it.name.isNotEmpty()) {
+                        _loggedUserViewState.postSuccess(true)
+                    } else {
+                        _loggedUserViewState.postError(Exception("Usuário vazio!"))
+                    }
+                }
+            } catch (err: Exception){
+                _loggedUserViewState.postError(err)
             }
         }
     }

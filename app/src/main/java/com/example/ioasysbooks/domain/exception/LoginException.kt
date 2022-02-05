@@ -1,4 +1,4 @@
-package com.example.ioasysbooks.domain.model.exception
+package com.example.ioasysbooks.domain.exception
 
 import java.lang.Exception
 
