@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import com.example.ioasysbooks.R
 import com.example.ioasysbooks.databinding.BookItemBinding
 import com.example.ioasysbooks.domain.model.Book
 
@@ -47,6 +49,10 @@ class BookListAdapter(
                 tvPagesCount.text = book.pages
                 tvPublisher.text = book.editor
                 tvPublished.text = book.date
+
+                imgBookView.load(book.imageUrl){
+                    error(R.drawable.img_book)
+                }
 
                 root.setOnClickListener{
                     onBookClickListener.onBookClickListener(book)

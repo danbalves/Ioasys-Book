@@ -1,4 +1,4 @@
-package com.example.ioasysbooks.presentation.ui.fragments
+    package com.example.ioasysbooks.presentation.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,15 +10,16 @@ import androidx.navigation.fragment.findNavController
 import com.example.ioasysbooks.databinding.FragmentLoginBinding
 import com.example.ioasysbooks.presentation.viewmodel.LoginViewModel
 import com.example.ioasysbooks.util.ViewState
-import org.koin.androidx.viewmodel.ext.android.viewModel
-
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding: FragmentLoginBinding get() = _binding!!
 
-    private val loginViewModel: LoginViewModel by viewModel()
+    private val loginViewModel: LoginViewModel by lazy {
+        getViewModel()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,7 +60,7 @@ class LoginFragment : Fragment() {
             when(state){
                 is ViewState.Success -> {
                     findNavController().navigate(
-                        LoginFragmentDirections.actionLoginFragmentToBookListFragment()
+                        LoginFragmentDirections.actionLoginFragmentToBookListFragment(accessToken = state.data)
                     )
                 }
                 is ViewState.Error -> {

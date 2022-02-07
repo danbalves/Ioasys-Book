@@ -1,21 +1,24 @@
 package com.example.ioasysbooks.data_remote.datasource
 
 import com.example.ioasysbooks.data.datasource.LoginDatasource
+import com.example.ioasysbooks.data_remote.mappers.toDomain
+import com.example.ioasysbooks.data_remote.model.LoginRequest
+import com.example.ioasysbooks.data_remote.service.AuthService
 import com.example.ioasysbooks.domain.model.User
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class LoginDatasourceImpl: LoginDatasource {
+class LoginDatasourceImpl(
+    private val authService: AuthService
+): LoginDatasource {
 
     override fun login(email: String, password: String): Flow<User> = flow {
-        delay(3_000)
-
-        emit(User(
-            name = "Daniel",
-            birthdate = "24/10/2001",
-            gender = "M",
-            accessToken = "A1b2345"
-        ))
+        val response = authService.signIn(LoginRequest(email, password))
+        val accessToken = response.headers()["authorization"]
+        if(response.isSuccessful){
+            response.body()?.let { loginResponse ->
+                emit(loginResponse.toDomain(accessToken?: ""))
+            }
+        }
     }
 }

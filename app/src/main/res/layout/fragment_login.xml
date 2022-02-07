@@ -35,24 +35,26 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="80dp"
-        android:hint="@string/email"
-        android:textColorHint="@color/hint_input_light_gray"
         android:textSize="16sp"
         app:boxStrokeColor="@color/transparent"
         app:boxStrokeWidth="0dp"
         app:hintTextColor="@color/hint_input_light_gray"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
-        app:layout_constraintTop_toBottomOf="@id/logoImageView">
+        app:layout_constraintTop_toBottomOf="@id/logoImageView"
+        android:textColorHint="@color/hint_input_light_gray">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edInputEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@drawable/bg_input_login"
             android:paddingStart="13dp"
             android:paddingEnd="0dp"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:hint="@string/email"
+            tools:textColorHint="@color/hint_input_light_gray"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -60,41 +62,43 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="156dp"
-        android:hint="@string/senha"
-        android:textColorHint="@color/hint_input_light_gray"
         android:textSize="16sp"
         app:boxStrokeColor="@color/transparent"
         app:boxStrokeWidth="0dp"
         app:hintTextColor="@color/hint_input_light_gray"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
-        app:layout_constraintTop_toBottomOf="@id/logoImageView">
+        app:layout_constraintTop_toBottomOf="@id/logoImageView"
+        android:textColorHint="@color/hint_input_light_gray">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edInputPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@drawable/bg_input_login"
             android:inputType="textPassword"
             android:paddingStart="13dp"
-            android:paddingEnd="100dp" />
+            android:paddingEnd="100dp"
+            android:textColor="@color/white"
+            android:hint="@string/senha"
+            tools:textColorHint="@color/hint_input_light_gray"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginButton"
         android:layout_width="85dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="243dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginVertical="12dp"
+        android:minHeight="36dp"
         android:background="@drawable/login_bnt_action"
         android:text="@string/login_button"
         android:textAllCaps="false"
         android:textColor="@color/txt_button_pink_color"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/inputPassword"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-        app:layout_constraintStart_toStartOf="@id/guidelineStart"
-        app:layout_constraintTop_toTopOf="@id/inputPassword">
+        app:layout_constraintTop_toTopOf="@id/inputPassword"
+        app:layout_constraintBottom_toBottomOf="@id/inputPassword">
 
     </androidx.appcompat.widget.AppCompatButton>
 

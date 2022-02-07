@@ -66,6 +66,7 @@ dependencies {
     def okhttpVersion = "4.9.0"
     implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
 
+
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
 
     def coilVersion = "1.4.0"
@@ -80,6 +81,4 @@ dependencies {
     implementation "io.insert-koin:koin-android:$koin_version"
 
     testImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
-
-
 }

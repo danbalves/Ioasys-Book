@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavArgs
+import androidx.navigation.fragment.navArgs
 import com.example.ioasysbooks.presentation.adapter.BookClickListener
 import com.example.ioasysbooks.presentation.adapter.BookListAdapter
 import com.example.ioasysbooks.databinding.FragmentBookListBinding
@@ -22,6 +24,8 @@ class BookListFragment : Fragment(), BookClickListener {
     private val binding: FragmentBookListBinding get() = _binding!!
 
     private val booksViewModel: BookListViewModel by viewModel()
+
+    private val args: BookListFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +44,7 @@ class BookListFragment : Fragment(), BookClickListener {
 
     private fun configureListeners(){
         binding.editSearch.textChangedListener = {input ->
-            booksViewModel.search(input)
+            booksViewModel.search(input, args.accessToken)
         }
     }
 
@@ -48,7 +52,7 @@ class BookListFragment : Fragment(), BookClickListener {
     private fun setBookListData(){
         bookListAdapter = BookListAdapter(this)
         binding.recycleView.adapter = bookListAdapter
-        booksViewModel.search()
+        booksViewModel.search(accessToken = args.accessToken)
     }
 
     private fun addObserver() {

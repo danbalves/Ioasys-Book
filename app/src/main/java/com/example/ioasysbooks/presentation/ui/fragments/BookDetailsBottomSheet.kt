@@ -6,6 +6,7 @@ import android.text.style.ImageSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import coil.load
 import com.example.ioasysbooks.R
 import com.example.ioasysbooks.databinding.BottomSheetBookDetailsBinding
 import com.example.ioasysbooks.domain.model.Book
@@ -60,6 +61,9 @@ class BookDetailsBottomSheet : BottomSheetDialogFragment() {
             tvInfoOriginBookName.text = book?.originName
             tvInfoISBN10.text = book?.isbn10
             tvInfoISBN13.text = book?.isbn13
+            imgBigBook.load(book?.imageUrl){
+                error(R.drawable.book)
+            }
 
             val spannableString = SpannableString("   ${book?.review}")
             val imageSpan = ImageSpan(requireContext(), R.drawable.ic_quotes)
