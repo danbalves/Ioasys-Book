@@ -13,7 +13,7 @@ val dataModule = module {
     }
 
     single <LoginRepository> {
-        LoginRepositoryImpl( get() )
+        LoginRepositoryImpl( get(), get() )
     }
 
 }

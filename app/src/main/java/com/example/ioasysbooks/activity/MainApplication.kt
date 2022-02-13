@@ -2,6 +2,7 @@ package com.example.ioasysbooks.activity
 
 import android.app.Application
 import com.example.ioasysbooks.di.PresentationModule
+import com.example.ioasysbooks.di.dataLocalModule
 import com.example.ioasysbooks.di.dataModule
 import com.example.ioasysbooks.di.dataRemoteModule
 import org.koin.android.ext.koin.androidContext
@@ -15,7 +16,8 @@ class MainApplication: Application() {
             modules(
                 PresentationModule,
                 dataModule,
-                dataRemoteModule
+                dataRemoteModule,
+                dataLocalModule
             ).androidContext(applicationContext)
         }
     }

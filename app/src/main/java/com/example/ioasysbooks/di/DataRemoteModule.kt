@@ -1,9 +1,9 @@
 package com.example.ioasysbooks.di
 
-import com.example.ioasysbooks.data.datasource.BooksDatasource
-import com.example.ioasysbooks.data.datasource.LoginDatasource
-import com.example.ioasysbooks.data_remote.datasource.BooksDatasourceImpl
-import com.example.ioasysbooks.data_remote.datasource.LoginDatasourceImpl
+import com.example.ioasysbooks.data.datasource.remote.BooksRemoteDataSource
+import com.example.ioasysbooks.data.datasource.remote.LoginRemoteDataSource
+import com.example.ioasysbooks.data_remote.datasource.BooksRemoteDataSourceImpl
+import com.example.ioasysbooks.data_remote.datasource.LoginRemoteDataSourceImpl
 import com.example.ioasysbooks.data_remote.service.AuthService
 import com.example.ioasysbooks.data_remote.service.BookService
 import com.example.ioasysbooks.data_remote.utils.ApiConstants
@@ -28,11 +28,11 @@ val dataRemoteModule = module {
 
     single { WebServiceFactory.providerOkHttpClient() }
 
-    single<BooksDatasource> {
-        BooksDatasourceImpl(get())
+    single<BooksRemoteDataSource> {
+        BooksRemoteDataSourceImpl(get())
     }
 
-    single<LoginDatasource> {
-        LoginDatasourceImpl(get())
+    single<LoginRemoteDataSource> {
+        LoginRemoteDataSourceImpl(get())
     }
 }
