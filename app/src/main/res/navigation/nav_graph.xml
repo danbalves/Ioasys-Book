@@ -18,9 +18,5 @@
         android:id="@+id/bookListFragment"
         android:name="com.example.ioasysbooks.presentation.ui.fragments.BookListFragment"
         android:label="fragment_book_list"
-        tools:layout="@layout/fragment_book_list" >
-        <argument
-            android:name="accessToken"
-            app:argType="string" />
-    </fragment>
+        tools:layout="@layout/fragment_book_list" />
 </navigation>

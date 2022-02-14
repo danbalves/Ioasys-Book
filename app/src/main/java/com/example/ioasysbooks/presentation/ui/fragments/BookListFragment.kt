@@ -25,8 +25,6 @@ class BookListFragment : Fragment(), BookClickListener {
 
     private val booksViewModel: BookListViewModel by viewModel()
 
-    private val args: BookListFragmentArgs by navArgs()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,7 +42,7 @@ class BookListFragment : Fragment(), BookClickListener {
 
     private fun configureListeners(){
         binding.editSearch.textChangedListener = {input ->
-            booksViewModel.search(input, args.accessToken)
+            booksViewModel.search(input)
         }
     }
 
@@ -52,7 +50,7 @@ class BookListFragment : Fragment(), BookClickListener {
     private fun setBookListData(){
         bookListAdapter = BookListAdapter(this)
         binding.recycleView.adapter = bookListAdapter
-        booksViewModel.search(accessToken = args.accessToken)
+        booksViewModel.search()
     }
 
     private fun addObserver() {
