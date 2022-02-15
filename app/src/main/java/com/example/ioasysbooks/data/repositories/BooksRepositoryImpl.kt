@@ -11,12 +11,22 @@ import kotlinx.coroutines.flow.flow
 class BooksRepositoryImpl(
     private val booksRemoteDataSource: BooksRemoteDataSource,
     private val booksLocalDataSource: BooksLocalDataSource
-): BooksRepository {
+) : BooksRepository {
 
     override fun getBooks(query: String?): Flow<List<Book>> = flow {
         booksLocalDataSource.getAccessToken().collect { token ->
-            booksRemoteDataSource.getBooks(token, query).collect { bookList ->
-                emit(bookList)
+
+            if (token.isNotEmpty()) {
+                booksLocalDataSource.getBooks(query = query).collect { bookList ->
+                    if (bookList.isEmpty()) {
+                        booksRemoteDataSource.getBooks(token, query).collect { bookResponse ->
+                            saveBooks(bookResponse)
+                            emit(bookResponse)
+                        }
+                    } else {
+                        emit(bookList)
+                    }
+                }
             }
         }
     }

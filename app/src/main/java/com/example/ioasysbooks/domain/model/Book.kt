@@ -2,7 +2,7 @@ package com.example.ioasysbooks.domain.model
 
 data class Book(
     val id: String,
-    val name: String,
+    val name: String = "",
     val author: String = "Geoffrey A. Moore",
     val pages: String = "150 Páginas",
     val editor: String = "Editora Loyola",

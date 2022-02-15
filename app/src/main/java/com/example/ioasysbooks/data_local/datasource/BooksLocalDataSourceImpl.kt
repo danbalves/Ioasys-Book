@@ -3,6 +3,7 @@ package com.example.ioasysbooks.data_local.datasource
 import com.example.ioasysbooks.data.datasource.local.BooksLocalDataSource
 import com.example.ioasysbooks.data_local.database.BookDao
 import com.example.ioasysbooks.data_local.mappers.toDao
+import com.example.ioasysbooks.data_local.mappers.toDomain
 import com.example.ioasysbooks.data_local.utils.LocalConstants.ACCESS_TOKEN_KEY
 import com.example.ioasysbooks.data_local.utils.SharedPreferencesHelper
 import com.example.ioasysbooks.domain.model.Book
@@ -21,4 +22,15 @@ class BooksLocalDataSourceImpl(
     override fun saveBooks(bookList: List<Book>) = bookDao.addBooks(
         bookList = bookList.map { it.toDao() }
     )
+
+    override fun getBooks(query: String?): Flow<List<Book>> = flow{
+        val bookList = bookDao.getBooks().map{ it.toDomain() }
+        query?.let {
+            emit(bookList.filter { book ->
+                book.name.trim().contains(it, ignoreCase = true)
+            })
+        } ?: run {
+            emit(bookList)
+        }
+    }
 }
