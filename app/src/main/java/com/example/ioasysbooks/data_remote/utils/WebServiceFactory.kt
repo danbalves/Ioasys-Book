@@ -1,6 +1,10 @@
 package com.example.ioasysbooks.data_remote.utils
 
-import okhttp3.*
+import com.example.ioasysbooks.BuildConfig
+import okhttp3.Dispatcher
+import okhttp3.OkHttpClient
+import okhttp3.ResponseBody
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -31,7 +35,18 @@ object WebServiceFactory {
             .connectTimeout(30L, TimeUnit.SECONDS)
             .readTimeout(30L, TimeUnit.SECONDS)
             .writeTimeout(30L, TimeUnit.SECONDS)
+            .httpLoggingInterceptor(BuildConfig.DEBUG)
             .build()
+
+    private fun OkHttpClient.Builder.httpLoggingInterceptor(wasDebugVersion: Boolean) =
+        when (wasDebugVersion) {
+            true -> {
+                val interceptor = HttpLoggingInterceptor()
+                    .setLevel(HttpLoggingInterceptor.Level.BODY)
+                addInterceptor(interceptor)
+            }
+            else -> this
+        }
 }
 
 object UnitConverterFactory : Converter.Factory(){
