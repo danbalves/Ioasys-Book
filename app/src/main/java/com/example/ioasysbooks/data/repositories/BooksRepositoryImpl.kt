@@ -21,4 +21,8 @@ class BooksRepositoryImpl(
         }
     }
 
+    override fun saveBooks(bookList: List<Book>) = booksLocalDataSource.saveBooks(
+        bookList = bookList
+    )
+
 }
