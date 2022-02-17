@@ -3,13 +3,21 @@
     <string name="background_description">Fundo rosa, laranja, contento uma mulher.</string>
     <string name="login_button">Entrar</string>
     <string name="email">Email</string>
-    <string name="senha">Password</string>
+    <string name="password">Password</string>
     <string name="error_text">Email e/ou senha incorretos.</string>
     <string name="search_hint">Pesquisar</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="close">Fechar</string>
-    <string name="book_title_string">Change By Design Second line exa...</string>
-    <string name="string_book_title_description">INFORMAÇÕES</string>
-    <string name="string_book_page_description">Páginas</string>
+    <string name="close_string">Fechar</string>
+    <string name="book_title_string">Change By Design Second line exa…</string>
+    <string name="book_description_string">INFORMAÇÕES</string>
+    <string name="book_page_string">Páginas</string>
     <string name="string_empty_error">Não encontramos nenhum\n livro com esses termos.</string>
+    <string name="book_authors_string">Tim Brown, Julie Zhuo, Fried Maximiilian</string>
+    <string name="book_review_string">RESENHA DA EDITORA</string>
+    <string name="book_editor_string">Editora</string>
+    <string name="book_published_string">Publicação</string>
+    <string name="book_language_string">Idioma</string>
+    <string name="book_origin_title_string">Título Original</string>
+    <string name="book_isbn10_string">ISBN-10</string>
+    <string name="book_isbn13_string">ISBN-13</string>
 </resources>

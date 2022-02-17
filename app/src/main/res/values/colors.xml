@@ -15,4 +15,8 @@
     <color name="subtitle">#AB2680</color>
     <color name="description">#333333</color>
     <color name="title_50">#80333333</color>
+    <color name="gray">#999999</color>
+    <color name="black_gray">#80000000</color>
+    <color name="search_input_color">#33333333</color>
+    <color name="light_pink">#FAC2DD</color>
 </resources>

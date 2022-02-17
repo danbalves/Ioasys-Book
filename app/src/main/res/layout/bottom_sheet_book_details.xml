@@ -17,7 +17,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/ic_close"
-            android:contentDescription="@string/close"
+            android:contentDescription="@string/close_string"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -57,7 +57,7 @@
             android:layout_marginStart="24dp"
             app:layout_constraintTop_toBottomOf="@id/tvName"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="Tim Brown, Julie Zhuo, Fried Maximiilian"/>
+            android:text="@string/book_authors_string"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/book_TitleDescription"
@@ -68,7 +68,7 @@
             android:layout_marginStart="24dp"
             app:layout_constraintTop_toBottomOf="@id/tvAuthors"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="@string/string_book_title_description"/>
+            android:text="@string/book_description_string"/>
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/containerDescription"
@@ -87,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Book_Label"
-                android:text="RESENHA DA EDITORA"
+                android:text="@string/book_review_string"
                 android:layout_marginStart="24dp"/>
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -117,49 +117,49 @@
                 android:layout_height="wrap_content"
                 style="@style/Book_Label"
                 android:layout_marginStart="24dp"
-                android:text="@string/string_book_page_description"/>
+                android:text="@string/book_page_string"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Book_Label"
                 android:layout_marginStart="24dp"
-                android:text="Editora"/>
+                android:text="@string/book_editor_string"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Book_Label"
                 android:layout_marginStart="24dp"
-                android:text="Publicação"/>
+                android:text="@string/book_published_string"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Book_Label"
                 android:layout_marginStart="24dp"
-                android:text="Idioma"/>
+                android:text="@string/book_language_string"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Book_Label"
                 android:layout_marginStart="24dp"
-                android:text="Título Original"/>
+                android:text="@string/book_origin_title_string"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Book_Label"
                 android:layout_marginStart="24dp"
-                android:text="ISBN-10"/>
+                android:text="@string/book_isbn10_string"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Book_Label"
                 android:layout_marginStart="24dp"
-                android:text="ISBN-13"/>
+                android:text="@string/book_isbn13_string"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

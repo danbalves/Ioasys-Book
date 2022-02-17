@@ -80,7 +80,7 @@
             android:paddingStart="13dp"
             android:paddingEnd="100dp"
             android:textColor="@color/white"
-            android:hint="@string/senha"
+            android:hint="@string/password"
             tools:textColorHint="@color/hint_input_light_gray"/>
     </com.google.android.material.textfield.TextInputLayout>
 
