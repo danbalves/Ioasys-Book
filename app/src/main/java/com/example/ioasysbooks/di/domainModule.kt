@@ -1,12 +1,16 @@
 import com.example.ioasysbooks.domain.usecase.GetBookListUseCase
 import com.example.ioasysbooks.domain.usecase.LoginUseCase
 import com.example.ioasysbooks.domain.usecase.SaveBookListUseCase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import org.koin.dsl.module
 
 
 val domainModule = module {
 
-    factory { LoginUseCase(get()) }
-    factory { GetBookListUseCase(get()) }
-    factory { SaveBookListUseCase(get()) }
+    single { CoroutineScope(Dispatchers.IO) }
+
+    factory { LoginUseCase(get(), get()) }
+    factory { GetBookListUseCase(get(), get()) }
+    factory { SaveBookListUseCase(get(), get()) }
 }
