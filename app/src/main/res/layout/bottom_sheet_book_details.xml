@@ -21,24 +21,18 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardView"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgBigBook"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginTop="16dp"
+            app:layout_constraintHeight_percent="0.4"
+            tools:src="@drawable/book"
             app:cardElevation="24dp"
             app:layout_constraintEnd_toEndOf="@id/guidelineEnd2"
             app:layout_constraintStart_toStartOf="@id/guideLineStart2"
             app:layout_constraintTop_toBottomOf="@id/btnClose"
-            android:backgroundTint="@color/white">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/imgBigBook"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:src="@drawable/book"/>
-
-        </com.google.android.material.card.MaterialCardView>
+            android:backgroundTint="@color/white"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvName"
@@ -50,7 +44,7 @@
             android:lineSpacingMultiplier="1.43"
             android:maxLines="2"
             android:ellipsize="end"
-            app:layout_constraintTop_toBottomOf="@id/cardView"
+            app:layout_constraintTop_toBottomOf="@id/imgBigBook"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/book_title_string"/>
