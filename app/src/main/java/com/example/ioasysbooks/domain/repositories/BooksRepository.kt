@@ -5,7 +5,13 @@ import kotlinx.coroutines.flow.Flow
 
 interface BooksRepository {
 
-    fun getBooks(query: String?): Flow<List<Book>>
+    //foi alterado
+//    fun getBooksRepository(query: String?): Flow<List<Book>>
+
+    fun getBooksRepository(): Flow<List<Book>>
     fun saveBooks(bookList: List<Book>)
+
+    // this is new
+    fun getSearchBookRepository(query: String): Flow<List<Book>>
 
 }

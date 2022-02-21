@@ -9,9 +9,18 @@ import retrofit2.http.Query
 interface BookService {
 
     @GET("books")
-    suspend fun getBooks(
+    suspend fun getBooksService(
         @Header("Authorization") accessToken: String,
         @Query("page") page: Int,
+    ):
+            Response<BooksListResponse>
+
+
+    @GET("books")
+    suspend fun getSearchBookService(
+        @Header("Authorization") accessToken: String,
+        @Query("page") page: Int,
+        @Query("title") title: String
     ):
             Response<BooksListResponse>
 }

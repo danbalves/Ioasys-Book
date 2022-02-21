@@ -62,7 +62,8 @@
         android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="@id/guideLineStart2"
         app:layout_constraintEnd_toEndOf="@id/guideLineEnd2"
-        app:layout_constraintTop_toBottomOf="@id/logoImageView2"/>
+        app:layout_constraintTop_toBottomOf="@id/logoImageView2"
+        android:imeOptions="actionSend"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_empty_list"

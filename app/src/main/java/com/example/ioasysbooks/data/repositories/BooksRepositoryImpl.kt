@@ -13,18 +13,37 @@ class BooksRepositoryImpl(
     private val booksLocalDataSource: BooksLocalDataSource
 ) : BooksRepository {
 
-    override fun getBooks(query: String?): Flow<List<Book>> = flow {
-        booksLocalDataSource.getAccessToken().collect { token ->
+    //!! COMENTADO TEMPORARIAMENTE!!
 
-            if (token.isNotEmpty()) {
-                booksLocalDataSource.getBooks(query = query).collect { bookList ->
-                    if (bookList.isEmpty()) {
-                        booksRemoteDataSource.getBooks(token, query).collect { bookResponse ->
-                            saveBooks(bookResponse)
-                            emit(bookResponse)
+    override fun getBooksRepository(): Flow<List<Book>> = flow {
+        booksLocalDataSource.getAccessToken().collect { token ->
+            if (token.isNotEmpty()){
+//                booksLocalDataSource.getLocalBooks().collect { bookListLocal ->
+//                    if (bookListLocal.isEmpty()) {
+//                        booksRemoteDataSource.getRemoteBooks(token).collect { bookListRemote ->
+//                            saveBooks(bookListRemote)
+//                            emit(bookListRemote)
+//                        }
+//                    } else {
+//                        emit(bookListLocal)
+//                    }
+//                }
+            }
+        }
+    }
+
+
+    override fun getSearchBookRepository(query: String): Flow<List<Book>> = flow {
+        booksLocalDataSource.getAccessToken().collect { token->
+            booksRemoteDataSource.getSearchBook(token, query)
+            if (token.isNotEmpty()){
+                booksRemoteDataSource.getSearchBook(token, query).collect { searchBookList ->
+                    if (query.isNotEmpty()){
+                        if (searchBookList.isEmpty()){
+                            error(Throwable("Livro não encontrado"))
+                        } else {
+                            emit(searchBookList)
                         }
-                    } else {
-                        emit(bookList)
                     }
                 }
             }

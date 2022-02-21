@@ -7,7 +7,7 @@ fun List<BookResponse>.toDomain(): List<Book> {
     return this.map {
         Book(
             id = it.id?:"",
-            name = it.name?:"",
+            title = it.title?:"",
             author = it.author?.first()?:"",
             pages = it.pages?:"",
             editor = it.editor?:"",

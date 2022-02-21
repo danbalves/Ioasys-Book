@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.ioasysbooks.domain.model.Book
 import com.example.ioasysbooks.domain.usecase.GetBookListUseCase
+import com.example.ioasysbooks.domain.usecase.GetSearchBookUseCase
 import com.example.ioasysbooks.domain.usecase.SaveBookListUseCase
 import com.example.ioasysbooks.util.ViewState
 import com.example.ioasysbooks.util.postError
@@ -13,20 +14,32 @@ import com.example.ioasysbooks.util.postSuccess
 
 class BookListViewModel(
     private val getBookListUseCase: GetBookListUseCase,
-    private val saveBookListUseCase: SaveBookListUseCase
+    private val saveBookListUseCase: SaveBookListUseCase,
+    private val getSearchBookUseCase: GetSearchBookUseCase
 ): ViewModel() {
 
     private var _bookListViewState = MutableLiveData<ViewState<List<Book>>>()
     val bookListViewState = _bookListViewState as LiveData<ViewState<List<Book>>>
 
-    fun search(input: String = ""){
+    fun putBookListOnView(){
         _bookListViewState.postLoading()
         getBookListUseCase(
-            params = GetBookListUseCase.Params(
+            Unit,
+            onSuccess = {
+                saveBooks(bookList = it)
+            },
+            onError = {
+                _bookListViewState.postError(it)
+            }
+        )
+    }
+
+    fun searchBooks(input: String = ""){
+        getSearchBookUseCase(
+            GetSearchBookUseCase.Params(
                 input = input
             ),
             onSuccess = {
-                saveBooks(bookList = it)
                 _bookListViewState.postSuccess(it)
             },
             onError = {
@@ -34,6 +47,8 @@ class BookListViewModel(
             }
         )
     }
+
+
 
     private fun saveBooks(bookList: List<Book>){
         saveBookListUseCase(

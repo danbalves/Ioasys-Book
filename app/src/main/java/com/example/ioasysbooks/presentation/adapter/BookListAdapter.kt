@@ -44,7 +44,7 @@ class BookListAdapter(
         fun bind(book: Book){
 
             binding.apply{
-                tvTitleBook.text = book.name
+                tvTitleBook.text = book.title
                 txtAuthorName.text = book.author
                 tvPagesCount.text = book.pages
                 tvPublisher.text = book.editor

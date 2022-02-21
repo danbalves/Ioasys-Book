@@ -1,0 +1,54 @@
+// Alterando código e implementando função de pesquisa diretamete na Api passando parametro title
+
+Primeiros passos:
+    1- Comentar onde vai ser alterado e de que forma foi alterado
+    2- Analisa o que pode ser usado e o que vai ser descartado no código atual
+    3- Alterar nomes iguais de funções e comentar as funções de tudo que vai ser usado para mudanças
+
+Iniciando a implementação:
+    1- Começar excluindo tudo aquilp que vai ser subistituido
+    2- de preferencia implementar a lógica em classes separadas
+    3- comentar tudo que foi adicionado e o que tem que termina de fazer
+    4- Contruir as funções necessárias
+    5- Construir a ponte para API com a requisição title e só após isso implementar a lógica de filtragem
+
+BooksLocalDataSourceImpl
+1- alterado
+2- precisa de implementação lógica (detalhes comentados)
+
+BookListViewModel
+1- Foi alterado
+
+GetBookListUseCase
+1- foi alterado
+
+BooksRepository
+1- foi alterado
+
+BooksRepository
+1- precia de alterações
+2- foi alterado
+3- precisa de implementações novas
+    1- implementar a lógica para mostrar os livros na tela sem interferir nos que já estão lá...
+
+BookListFragment
+1- foi alterado
+2- necessita de novas implementações
+
+BooksLocalDataSource
+1- foi alterado
+
+BooksRemoteDataSource
+1- foi alterado
+2- precisa de implementação
+
+
+O que falta até agora:
+
+1- Implementar a lógica para a filtragem e busca do livro
+2- implementar a logica para mostrar apenas os livros filtrados na tela
+
+GetSearchBookUseCase
+
+1- New file
+2- //need implementation

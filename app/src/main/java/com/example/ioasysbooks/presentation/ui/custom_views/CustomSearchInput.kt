@@ -8,7 +8,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import com.example.ioasysbooks.R
 import com.google.android.material.textfield.TextInputEditText
-import kotlin.text.isNullOrEmpty as isNullOrEmpty
 
 class CustomSearchInput @JvmOverloads constructor(
 
@@ -62,4 +61,5 @@ class CustomSearchInput @JvmOverloads constructor(
         else
             input.backgroundTintList = ContextCompat.getColorStateList(context, android.R.color.white)
     }
+
 }

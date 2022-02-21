@@ -52,7 +52,7 @@ class BookDetailsBottomSheet : BottomSheetDialogFragment() {
 
     private fun setupView() {
         binding.apply {
-            tvName.text = book?.name
+            tvName.text = book?.title
             tvAuthors.text = book?.author
             tvInfoPages.text = book?.pages
             tvEditor.text = book?.editor

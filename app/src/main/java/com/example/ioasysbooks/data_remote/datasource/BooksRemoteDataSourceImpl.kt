@@ -8,21 +8,30 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class BooksRemoteDataSourceImpl(
-    private val bookService: BookService
-): BooksRemoteDataSource {
+    private val bookService: BookService,
+) : BooksRemoteDataSource {
 
-    override fun getBooks(accessToken: String, query: String?): Flow<List<Book>> = flow {
-        val response = bookService.getBooks(accessToken = "Bearer $accessToken", page = 1)
-        if(response.isSuccessful){
-            response.body()?.data?.let { bookList ->
-                query?.let {
-                    emit(bookList.filter { book ->
-                        book.name?.trim()?.contains(it, ignoreCase = true) ?: false
+    override fun getRemoteBooks(accessToken: String): Flow<List<Book>> = flow {
+        val response = bookService.getBooksService(accessToken = "Bearer $accessToken", page = 1)
+        if (response.isSuccessful){
+            response.body()?.data?.toDomain()
+        }
+    }
+
+    override fun getSearchBook(accessToken: String, query: String?): Flow<List<Book>> = flow {
+        val response = bookService.getSearchBookService(accessToken = "Bearer $accessToken", page = 2, title = query?:"")
+        if (response.isSuccessful){
+            response.body()?.data?.let { bookListRemote -> 
+                query?.let { 
+                    emit(bookListRemote.filter { book -> 
+                        book.title?.trim()?.contains(it, ignoreCase = true) ?: false
                     }.toDomain())
-                } ?: run {
-                    emit(bookList.toDomain())
+                } ?: run{
+                    emit(listOf())
                 }
             }
         }
     }
+
+
 }

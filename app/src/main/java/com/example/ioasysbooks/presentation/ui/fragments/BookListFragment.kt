@@ -1,18 +1,15 @@
 package com.example.ioasysbooks.presentation.ui.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModel
-import androidx.navigation.NavArgs
-import androidx.navigation.fragment.navArgs
+import androidx.fragment.app.Fragment
+import com.example.ioasysbooks.databinding.FragmentBookListBinding
+import com.example.ioasysbooks.domain.exception.EmptyBookListException
+import com.example.ioasysbooks.domain.model.Book
 import com.example.ioasysbooks.presentation.adapter.BookClickListener
 import com.example.ioasysbooks.presentation.adapter.BookListAdapter
-import com.example.ioasysbooks.databinding.FragmentBookListBinding
-import com.example.ioasysbooks.domain.model.Book
-import com.example.ioasysbooks.domain.exception.EmptyBookListException
 import com.example.ioasysbooks.presentation.viewmodel.BookListViewModel
 import com.example.ioasysbooks.util.ViewState
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -37,20 +34,32 @@ class BookListFragment : Fragment(), BookClickListener {
 
         setBookListData()
         configureListeners()
+//        myEnter()
         addObserver()
     }
 
     private fun configureListeners(){
-        binding.editSearch.textChangedListener = {input ->
-            booksViewModel.search(input)
+        binding.editSearch.textChangedListener = { input ->
+            booksViewModel.searchBooks(input)
         }
     }
 
+    // implementar depois
+//    private fun myEnter(){
+//        editSearch.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+//            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN){
+//                configureListeners()
+//                return@OnKeyListener true
+//            }
+//            false
+//        })
+//    }
 
     private fun setBookListData(){
         bookListAdapter = BookListAdapter(this)
         binding.recycleView.adapter = bookListAdapter
-        booksViewModel.search()
+//        booksViewModel.putBookListOnView()
+        booksViewModel.searchBooks()
     }
 
     private fun addObserver() {
@@ -75,6 +84,7 @@ class BookListFragment : Fragment(), BookClickListener {
                 }
                 else -> Unit
             }
+
         }
     }
 

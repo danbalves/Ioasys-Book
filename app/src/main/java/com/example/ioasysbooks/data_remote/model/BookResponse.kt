@@ -6,7 +6,7 @@ data class BookResponse (
     @SerializedName("id")
     val id: String?,
     @SerializedName("title")
-    val name: String?,
+    val title: String?,
     @SerializedName("authors")
     val author: List<String>?,
     @SerializedName("pageCount")
